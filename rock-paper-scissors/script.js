@@ -3,7 +3,11 @@
 
 //The computer will randomly return rock, paper or scissors
 
+//Let's also add a way to generate some text in the index.html file to show the results
 
+let computerResult = document.querySelector('.computerResult');
+let playerResult = document.querySelector('.yourResult');
+let gameResult = document.querySelector('.gameResult');
 //First we need a way to generate something random that can be used to select between the three choices.
 function getComputerChoice(){
     //The choice variables stores a random number between 0 and 100.
@@ -13,16 +17,101 @@ function getComputerChoice(){
     //An example of this could be using 0-33 = Rock
     if (number <= 33){
         choice = "rock";
-        console.log("test")
         return choice;
-    } else if (number >= 33 && number <= 66) {
+    //Paper would be between 34-66
+    } else if (number > 33 && number <= 66) {
         choice = "paper";
-        console.log("test");
         return choice;
+    //Scissors would be 67-100
     } else {
         choice = "scissors";
-        console.log("test3")
         return choice;
     }
-
 }
+
+
+//Next up we need to create a function that establishes the Human Choice
+
+function getHumanChoice(){
+    //First we prompt the user by choosing between Rock, Paper and Scissors
+    let playerChoice = prompt("Choose Rock, Paper or Scissors");
+
+    playerChoice = playerChoice.toUpperCase();
+
+    //We should also get the computer's choice in order to determine who won
+    let computerChoice = getComputerChoice();
+    
+
+    //Here we get the player's choice through the switch statement and compare them to the computer's choice and use if else statements to determine the winner
+    switch (playerChoice){
+        case "ROCK":
+            if (computerChoice === "rock"){
+                console.log("It's a tie!");
+                gameResult.textContent = "It's a tie!";
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                break;
+            } else if (computerChoice === "scissors") {
+                console.log("You win!");
+                gameResult.textContent = "You win!";
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                break;
+            } else {
+                console.log("You lose!");
+                gameResult.textContent = "You lose!";;
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                break;
+            }
+
+        case "SCISSORS":
+            if (computerChoice === "rock"){
+                console.log("You lose!");
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                gameResult.textContent = "You lose!";;
+                break;
+            } else if (computerChoice === "scissors") {
+                console.log("It's a tie!");
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                gameResult.textContent = "It's a tie!";
+                break;
+            } else {
+                console.log("You win!");
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                gameResult.textContent = "You win!";
+                break;
+            }
+
+        case "PAPER":
+            if (computerChoice === "rock"){
+                console.log("You win!");
+                gameResult.textContent = "You win!";
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                break;
+            } else if (computerChoice === "scissors") {
+                console.log("You lose!");
+                gameResult.textContent = "You lose!";
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                break;
+            } else {
+                console.log("It's a tie!");
+                playerResult.textContent = playerChoice;
+                computerResult.textContent = computerChoice;
+                gameResult.textContent = "It's a tie!";
+                break;
+            }
+            //In case the player tries to enter something that isn't rock paper or scissors, throw an error at them.
+        default:
+            gameResult.textContent = "Please enter a valid value, which is Rock, Paper or Scissors";
+            break;
+    }
+    
+}
+//lastly we run the function as soon as the game is loaded
+getHumanChoice();
