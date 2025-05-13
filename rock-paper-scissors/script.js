@@ -59,23 +59,23 @@ function getHumanChoiceAndPlayRound() {
                 console.log("It's a tie!");
                 gameResult.textContent = "It's a tie!";
                 playerResult.textContent += `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
 
 
                 break;
             } else if (computerChoice === "scissors") {
                 console.log("You win!");
                 gameResult.textContent = "You win!";
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 humanScore++;
                 yourScore.textContent = humanScore;
                 break;
             } else {
                 console.log("You lose!");
                 gameResult.textContent = "You lose!";;
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 computerScore++;
                 enemyScore.textContent = computerScore;
                 break;
@@ -84,22 +84,22 @@ function getHumanChoiceAndPlayRound() {
         case "SCISSORS":
             if (computerChoice === "rock") {
                 console.log("You lose!");
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 gameResult.textContent = "You lose!";
                 computerScore++
                 enemyScore.textContent = computerScore;
                 break;
             } else if (computerChoice === "scissors") {
                 console.log("It's a tie!");
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = c`${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 gameResult.textContent = "It's a tie!";
                 break;
             } else {
                 console.log("You win!");
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 gameResult.textContent = "You win!";
                 humanScore++;
                 yourScore.textContent = humanScore;
@@ -110,23 +110,23 @@ function getHumanChoiceAndPlayRound() {
             if (computerChoice === "rock") {
                 console.log("You win!");
                 gameResult.textContent = "You win!";
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 humanScore++;
                 yourScore.textContent = humanScore;
                 break;
             } else if (computerChoice === "scissors") {
                 console.log("You lose!");
                 gameResult.textContent = "You lose!";
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 computerScore++;
                 enemyScore.textContent = computerScore;
                 break;
             } else {
                 console.log("It's a tie!");
-                playerResult.textContent = `${playerChoice} `;
-                computerResult.textContent = `${computerChoice} `;
+                playerResult.textContent += `${playerChoice} `;
+                computerResult.textContent += `${computerChoice} `;
                 gameResult.textContent = "It's a tie!";
                 break;
             }
@@ -139,12 +139,11 @@ function getHumanChoiceAndPlayRound() {
 }
 
 //We need to run a loop that plays the game 5 times
-//lastly we run the function as soon as the game is loaded
 function playFiveRounds() {
     for (let i = 0; i < 5; i++) {
         getHumanChoiceAndPlayRound();
     }
 }
-
+//Lastly we add an event listener to keep track of when the button is pressed, and then executes the loop.
 startGame.addEventListener('click', playFiveRounds);
 
