@@ -57,15 +57,11 @@ function getHumanChoiceAndPlayRound() {
         case "ROCK":
             if (computerChoice === "rock") {
                 console.log("It's a tie!");
-                gameResult.textContent = "It's a tie!";
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
-
-
                 break;
             } else if (computerChoice === "scissors") {
                 console.log("You win!");
-                gameResult.textContent = "You win!";
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
                 humanScore++;
@@ -73,7 +69,6 @@ function getHumanChoiceAndPlayRound() {
                 break;
             } else {
                 console.log("You lose!");
-                gameResult.textContent = "You lose!";;
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
                 computerScore++;
@@ -86,7 +81,6 @@ function getHumanChoiceAndPlayRound() {
                 console.log("You lose!");
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
-                gameResult.textContent = "You lose!";
                 computerScore++
                 enemyScore.textContent = computerScore;
                 break;
@@ -94,13 +88,11 @@ function getHumanChoiceAndPlayRound() {
                 console.log("It's a tie!");
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
-                gameResult.textContent = "It's a tie!";
                 break;
             } else {
                 console.log("You win!");
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
-                gameResult.textContent = "You win!";
                 humanScore++;
                 yourScore.textContent = humanScore;
                 break;
@@ -109,7 +101,6 @@ function getHumanChoiceAndPlayRound() {
         case "PAPER":
             if (computerChoice === "rock") {
                 console.log("You win!");
-                gameResult.textContent = "You win!";
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
                 humanScore++;
@@ -117,7 +108,6 @@ function getHumanChoiceAndPlayRound() {
                 break;
             } else if (computerChoice === "scissors") {
                 console.log("You lose!");
-                gameResult.textContent = "You lose!";
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
                 computerScore++;
@@ -127,7 +117,6 @@ function getHumanChoiceAndPlayRound() {
                 console.log("It's a tie!");
                 playerResult.textContent += `${playerChoice} `;
                 computerResult.textContent += `${computerChoice} `;
-                gameResult.textContent = "It's a tie!";
                 break;
             }
         //In case the player tries to enter something that isn't rock paper or scissors, throw an error at them.
