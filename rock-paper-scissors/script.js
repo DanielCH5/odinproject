@@ -40,11 +40,13 @@ function getComputerChoice() {
 }
 
 
+
+
 //Next up we need to create a function that establishes the Human Choice
 
-function getHumanChoiceAndPlayRound() {
+function getHumanChoiceAndPlayRound(id) {
     //First we prompt the user by choosing between Rock, Paper and Scissors
-    let playerChoice = prompt("Choose Rock, Paper or Scissors");
+    let playerChoice = id;
 
     playerChoice = playerChoice.toUpperCase();
 
@@ -126,13 +128,20 @@ function getHumanChoiceAndPlayRound() {
     }
 
 }
+const choices = document.querySelectorAll('.choice');
 
+//Lastly we add an event listener to keep track of when the button is pressed, and then executes the loop.
+
+choices.forEach((choice) => {
+    choice.addEventListener('click', () => {
+        getHumanChoiceAndPlayRound(choice.id);
+    });
+});
 //We need to run a loop that plays the game 5 times
 function playFiveRounds() {
     for (let i = 0; i < 5; i++) {
         getHumanChoiceAndPlayRound();
     }
 }
-//Lastly we add an event listener to keep track of when the button is pressed, and then executes the loop.
-startGame.addEventListener('click', playFiveRounds);
+
 
